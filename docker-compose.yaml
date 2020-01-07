@@ -2,7 +2,7 @@ version: '3.7'
 services:
   notebook:
     build:
-      context: ./insight_notebook_docker
+      context: ./notebook_docker
     ports:
       - "8888:8888"
     depends_on:
@@ -27,7 +27,7 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - postgres-insight-store:/var/lib/postgresql/data
+      - postgres-store:/var/lib/postgresql/data
 
 volumes:
-    postgres-insight-store:
+    postgres-store:
