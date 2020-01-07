@@ -10,5 +10,11 @@ To get it up and running do the following:
 * Grab the url provided in the output and paste it into a web-browser to get into your jupyter lab instance
 * Save the url for later
 
-You can add new files to the `notebooks` directory and they will be made available to the jupyter labs container. Any files added under the `notebooks` within jupyter labs will persist after stopping the container. The postgresql database persists as well but it kept as a docker volume so see the docker docs for specifics on working with it.
+To stop everything:
+* In the main directory run `docker-compose down`
 
+You can add new files to the `notebooks` directory and they will be made available to the jupyter labs container. Any files added under the `notebooks` within jupyter labs will persist after stopping the container. The postgresql database persists as well, but it is kept as a docker volume so see the docker docs for specifics on working with it.
+
+## Limitations
+
+At the moment I believe only a single instance of this is possible to run at a time on a host. Some tweaking might fix that, **feel free to contribute**. The images track the latest versions of jupyter and postgresql, edit the Dockerfiles to adjust this as needed.

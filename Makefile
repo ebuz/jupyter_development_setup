@@ -1,7 +1,5 @@
-.PHONY: image start launch shell stop
+.PHONY: image start launch stop
 
-WORKINGDIR ?= /Users/ebuz/projects/insight/notebooks
-IMAGE ?= insight_dev
 JUPYTER_SERVICE ?= notebook
 START_WAIT ?= 10
 
@@ -18,12 +16,6 @@ start: server_url.txt
 launch: start
 	cat server_url.txt | xargs open
 
-# shell:
-# 	echo "#1/bin/sh" > launch_shell.sh
-# 	echo "docker exec -it ${NAME} /bin/bash" >> launch_shell.sh
-# 	chmod +x launch_shell.sh
-
 stop:
-	docker-compose down ${NAME}
+	docker-compose down
 	rm server_url.txt
-	# rm launch_shell.sh
